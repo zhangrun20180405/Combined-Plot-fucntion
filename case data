@@ -1,0 +1,7 @@
+cost_list=[640.0, 557.0, 700.0, 700.0, 700.0, 718.0, 734.0, 735.0, 712.0, 716.0]
+
+violation_count_list=[0, 3, 0, 0, 0, 5, 3, 2, 4, 3]
+
+# below are range data for x aixs
+x_range=range(0,11)
+x_range_9=range(2,11)
