@@ -1,0 +1,33 @@
+q=1
+w=1
+e=1
+r=1
+t=1
+
+combined_list2=[[],[],[],[],[]]
+l1=[q,w,e,r,t]
+figwithlam1 = plt.figure("lam1",dpi=380)
+figwithlam1.set_size_inches(10,10)
+plt.grid(linestyle='--',linewidth=0.45)
+ax1= plt.axes()
+ax1.axis([5.4,5.6,0.3,0.7])
+
+
+
+for x in range(len(combined_list2)):
+    lam1=0.00+x*0.2
+    lam2=1-lam1
+    marks=['o','s','D','p','>']
+    for i in range(len(nomalize_violation_count_list[1:])):
+        combined_list2[x].append((lam1*(nomalize_violation_count_list[1:][i])+lam2*(nomalize_cost[1:][i])))
+    #combined_list[x] = combined_list[x] / (combined_list[x][0])
+
+
+    l1[x],=ax1.plot(x_range_9, combined_list2[x],color='k',lw=0.3,markeredgecolor='k',marker=marks[x],markerfacecolor='white',markersize=3,label="total cost line chart")
+ax1.set_xlabel('Number of clusters K')
+ax1.set_ylabel('Combined metric')
+
+
+ptt=plt.legend(handles=[l1[0], l1[1],l1[2],l1[3],l1[4]], labels=["$λ= 0 $", "$λ= 0.2 $","$λ= 0.4 $", "$λ= 0.6 $","$λ= 0.8 $"], loc='upper right',fontsize='xx-small',edgecolor='k',facecolor='white')
+ptt.get_frame().set_alpha(1)
+plt.show() 
