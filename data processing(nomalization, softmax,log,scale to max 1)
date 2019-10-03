@@ -1,0 +1,32 @@
+def Normalize(data):
+    normalized_data=[]
+    for i in range(len(data)):
+        normalized_data.append((data[i]-np.min(data))/(np.max(data)-np.min(data)))
+    return normalized_data
+
+
+def softmaxdata(data):
+    softmax_data=[]
+    for i in range(len(data)):
+        softmax_data.append(np.exp(data[i])/sum(np.exp(data)))
+    return softmax_data
+        
+def logisticdata(data,beta,beta_0):
+    logistic_data=[]
+    for i in range(len(data)):
+        logistic_data.append(1/(1+math.exp(-(beta*data[i]+beta_0))))
+    return logistic_data
+
+def logdata(data):
+    log_data=[]
+    for i in range(len(data)):
+        log_data.append(math.log(data[i]))
+    return log_data
+
+
+def scale_max_1(data):
+    data_scale_max_1=[]
+    for i in range(len(data)):
+        data_scale_max_1.append(data[i]/np.max(data))
+    return data_scale_max_1
+    
