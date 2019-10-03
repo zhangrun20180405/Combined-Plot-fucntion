@@ -1,0 +1,13 @@
+logistic_violation=logisticdata(violation_count_list,0.5,0.5)
+log_cost=logdata(cost_list)
+nomalize_cost=Normalize(cost_list)
+nomalize_violation_count_list=Normalize(violation_count_list)
+normalize_logistic_violation=Normalize(logistic_violation)
+log_cost_scale_max_1=scale_max_1(log_cost)
+normalize_log_cost_scale_max_1=Normalize(log_cost_scale_max_1)
+print(log_cost)
+print(log_cost_scale_max_1)
+
+print(normalize_log_cost_scale_max_1)
+print(nomalize_cost)
+print(normalize_logistic_violation)
