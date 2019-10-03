@@ -1,0 +1,33 @@
+
+figcombin = plt.figure("violation",dpi=380)
+figcombin.set_size_inches(9, 9)
+plt.grid(linestyle='--',linewidth=0.45)
+
+ax11= plt.axes()
+ax11 = figcombin.add_subplot(111)
+l1, =ax11.plot(x_range_9, cost_list[1:],color='k',lw=0.3,markeredgecolor='k',marker='o',markerfacecolor='white',markersize=9,label="total cost line chart")
+#l3, =ax11.plot(x_range, combined_list,color='b',lw=0.3,markeredgecolor='b',marker='o',markerfacecolor='white',markersize=3,label="total cost line chart")
+
+ax11.set_ylabel('Total cost',size=20)
+ax11.set_ylim([450,700])
+ax11.set_xlabel('Number of clusters K',size=20)
+
+#ax11.set_title("Double Y axis")
+ax22= plt.axes()
+ax22 = ax11.twinx()  # this is the important function
+l2,=ax22.plot(x_range_9, violation_count_list[1:], color='k',lw=0.3,markeredgecolor='k',marker='s',markerfacecolor='white',markersize=9,label="total violation line chart")
+#ax22.set_xlim([1,11])
+ax22.set_ylabel('Total number of violations',size=20)
+ax22.set_xlabel('Number of clusters ',size=20)
+
+
+
+#ax11.legend()
+#ax22.legend(loc='upper left',fontsize='small')
+
+ptt=plt.legend(handles=[l1, l2], labels=["total cost", "violation"], loc='upper left',fontsize='x-large',edgecolor='k',facecolor='white')
+ptt.get_frame().set_alpha(1)
+my_y_ticks = np.arange(0, 11,1)
+plt.yticks(my_y_ticks)
+
+plt.show()
